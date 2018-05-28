@@ -1,6 +1,6 @@
 import {post, get, delete as deleteMapping} from 'axios';
 import { hashHistory } from 'react-router'
-import { PRODUCTS_SAVED, FETCH_PRODUCT, AJAX_END, PRODUCTS_ALL, PRODUCT_LOADED, CHANGE_PRODUCT } from './actionTypes';
+import { PRODUCTS_SAVED, FETCH_PRODUCT, AJAX_END, PRODUCTS_ALL, PRODUCT_LOADED, CHANGE_PRODUCT, CHANGE_GENRE } from '../constants/actionTypes';
 
 export function saveProduct(productToSave) {
 
@@ -31,6 +31,10 @@ export function deleteProduct(pid) {
 export function changeProduct(product) {
     return {type: CHANGE_PRODUCT, product: product}
 }
+
+export const changeGenre = gid => (dispatch) => {
+  return dispatch({type: CHANGE_GENRE, selected: gid});
+};
 
 export function fetchProduct(pid) {
 

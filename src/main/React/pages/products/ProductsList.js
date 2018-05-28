@@ -2,9 +2,10 @@ import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 import {connect} from 'react-redux'
-import * as actionCreators from 'actions/products'
+import * as productActions from 'actions/products'
 
 import ProductTable from 'components/products/ProductTable'
+import GenreList from 'components/GenreList'
 
 class ProductsListCmp extends React.Component {
     constructor(props) {
@@ -25,16 +26,24 @@ class ProductsListCmp extends React.Component {
     }
 
     render() {
-        return <ProductTable products = {this.getProducts()} deleteProduct={this.props.deleteProduct}/>;
+        return (
+        <div style={{display: 'flex'}}>
+            <div style={{width: '20%', paddingTop: 10}}>
+                <GenreList genres={this.props.genres} selectedGenre={this.props.selectedGenre} onGenreClick={this.props.changeGenre}/>
+            </div>
+            <ProductTable products = {this.getProducts()} deleteProduct={this.props.deleteProduct}/>
+        </div>
+        );
     }
 }
 
 
 function mapStateToProps(state) {
     return {
-        needRefresh: state.product.needRefresh,
-        products: state.product.products
+        products: state.product.products,
+        genres: state.product.genres,
+        selectedGenre: state.product.selectedGenre
     }
 }
 
-export const ProductsList = connect(mapStateToProps, actionCreators)(ProductsListCmp)
+export const ProductsList = connect(mapStateToProps, productActions)(ProductsListCmp);

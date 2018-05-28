@@ -4,3 +4,4 @@ export const FETCH_PRODUCT = 'FETCH_PRODUCT';
 export const AJAX_END = 'AJAX_END';
 export const PRODUCT_LOADED = 'PRODUCT_LOADED';
 export const CHANGE_PRODUCT = 'CHANGE_PRODUCT';
+export const CHANGE_GENRE = 'CHANGE_GENRE';

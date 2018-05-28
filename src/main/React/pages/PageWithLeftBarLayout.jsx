@@ -10,13 +10,12 @@ export class PageWithLeftBarLayout extends React.Component {
     }
 
     render() {
-        return <div className="wrapper">
+        return <div>
             <Drawer/>
             <div className="main-panel">
-                <div className="content">
+                <div>
                     {this.props.children}
                 </div>
-                <Footer />
             </div>
         </div>
     }

@@ -9,8 +9,8 @@ export default class Footer extends React.Component {
     }
 
     render() {
-        return <footer className="footer">
-            <div className="container-fluid">
+        return <footer>
+            <div>
                 <nav className="pull-left">
                     <ul>
                         <li>
